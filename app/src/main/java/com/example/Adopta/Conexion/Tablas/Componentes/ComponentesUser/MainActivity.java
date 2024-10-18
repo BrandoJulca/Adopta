@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements Callback<URespons
 
         @Override
         public LocalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(context).inflate(R.layout.row_universidades, null);
+            View view = LayoutInflater.from(context).inflate(R.layout.row_users, null);
             LocalViewHolder customViewHolder = new LocalViewHolder(view);
             return customViewHolder;
         }
