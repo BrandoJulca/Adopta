@@ -1,4 +1,4 @@
-package com.example.consumoapirest.UserDATA;
+package com.example.Adopta;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -6,9 +6,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyAPIAdapter {
-    private static com.example.consumoapirest.UserDATA.MyAPIService API_SERVICE;
+    private static MyAPIService API_SERVICE;
 
-    public static com.example.consumoapirest.UserDATA.MyAPIService getApiService() {
+    public static MyAPIService getApiService() {
 
         // Creamos un interceptor y le indicamos el log level a usar
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -18,7 +18,7 @@ public class MyAPIAdapter {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(logging);
 
-        String baseUrl = "https://coramatch.datxtech.com/WebAPP/adopta/User/";
+        String baseUrl = "https://coramatch.datxtech.com/WebAPP/universidad/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()

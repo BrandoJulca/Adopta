@@ -1,9 +1,9 @@
-package com.example.consumoapirest.UserDATA;
-
+package com.example.Adopta.Conexion.User;
+import com.example.Adopta.Conexion.User.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class USEResponse {
+public class UResponse {
     private Integer estado;
     private List<User> users = new ArrayList<User>();
 

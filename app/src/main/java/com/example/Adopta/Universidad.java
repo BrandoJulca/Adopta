@@ -1,4 +1,4 @@
-package com.example.consumoapirest;
+package com.example.Adopta;
 
 public class Universidad {
     private Integer id;

@@ -4,22 +4,22 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/Correo"
+        android:id="@+id/correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/Pass"
+        android:id="@+id/pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/user"
+        android:id="@+id/usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/NumeroContacto"
+        android:id="@+id/numerocontacto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

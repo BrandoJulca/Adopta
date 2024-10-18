@@ -1,4 +1,4 @@
-package com.example.consumoapirest;
+package com.example.Adopta;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

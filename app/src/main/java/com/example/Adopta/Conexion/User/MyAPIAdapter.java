@@ -1,4 +1,5 @@
-package com.example.consumoapirest;
+package com.example.Adopta.Conexion.User;
+import com.example.Adopta.Conexion.User.MyAPIService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -18,7 +19,7 @@ public class MyAPIAdapter {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(logging);
 
-        String baseUrl = "https://coramatch.datxtech.com/WebAPP/universidad/";
+        String baseUrl = "https://coramatch.datxtech.com/WebAPP/adopta/User/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()
