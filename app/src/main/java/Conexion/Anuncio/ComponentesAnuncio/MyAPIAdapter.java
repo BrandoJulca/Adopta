@@ -1,5 +1,4 @@
-package com.example.Adopta.Conexion.User;
-import com.example.Adopta.Conexion.User.MyAPIService;
+package Conexion.Anuncio.ComponentesAnuncio;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

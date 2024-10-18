@@ -1,4 +1,4 @@
-package com.example.Adopta.Conexion.User;
+package com.example.Adopta.Conexion.User.ComponentesUser;
 
 public class UserE {
     private Integer id;

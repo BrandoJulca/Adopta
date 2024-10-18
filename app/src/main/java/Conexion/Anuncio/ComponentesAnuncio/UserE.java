@@ -1,11 +1,19 @@
-package com.example.Adopta.Conexion.User;
+package Conexion.Anuncio.ComponentesAnuncio;
 
-public class User {
+public class UserE {
     private Integer id;
     private String correo;
     private String pass;
     private String usuario;
     private String numeroContacto;
+
+    public UserE(Integer id, String correo, String pass, String usuario, String numeroContacto) {
+        this.id = id;
+        this.correo = correo;
+        this.pass = pass;
+        this.usuario = usuario;
+        this.numeroContacto = numeroContacto;
+    }
 
     public Integer getId() {
         return id;
@@ -47,4 +55,5 @@ public class User {
         this.numeroContacto = numeroContacto;
     }
 }
+
 
