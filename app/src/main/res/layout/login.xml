@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="@color/green_pet"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tituloAplicacion"
+        android:gravity="center"
+        android:textSize="45sp"
+        android:textColor="@color/blanco"
+        android:layout_marginBottom="20dip" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:srcCompat="?android:attr/fingerprintAuthDrawable" />
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blanco"
+        android:text="@string/Usuario" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:gravity="center"
+        android:hint="@string/exampleuser" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blanco"
+        android:text="@string/Pass" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/examplepass" />
+
+    <Button android:id="@+id/Button01"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/Entrar"/>
+
+    <Button android:id="@+id/Button04"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/Salir"/>
+
+
+</LinearLayout>
