@@ -16,11 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.consumoapirest.MainActivity;
 import com.example.consumoapirest.R;
-import com.example.consumoapirest.UResponse;
 import com.example.consumoapirest.UserDATA.USEResponse;
 import com.example.consumoapirest.UserDATA.User;
 import com.example.consumoapirest.UserDATA.UserE;
+import com.example.consumoapirest.UserDATA.MyAPIService;
+import com.example.consumoapirest.UserDATA.MyAPIAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,44 +37,57 @@ public class SecActivity extends AppCompatActivity implements Callback<USERespon
     private RecyclerView recyclerView;
     private ArrayList<UserE> arregloMain;
     private MyLocalAdapter listAdapter;
+    private TextView emptyView; // Nueva variable para el mensaje vacío
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sec_activity);
 
-        /// Instancias del RecyclerView
+        // Instancias del RecyclerView y la vista vacía
         recyclerView = (RecyclerView) findViewById(R.id.lista);
+        emptyView = (TextView) findViewById(R.id.empty_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        /// Llamada al servicio mediante Retrofit
+        // Llamada al servicio mediante Retrofit
         Call<USEResponse> call = MyAPIAdapter.getApiService().getUsers();
         call.enqueue(this);
     }
 
     @Override
     public void onResponse(Call<USEResponse> call, Response<USEResponse> response) {
-        if (response.isSuccessful()){
+        if (response.isSuccessful()) {
             USEResponse respuesta = response.body();
-            Log.d("onResponse RETRO", "Tamaño del array => "+ respuesta.getUsers().size());
+            Log.d("onResponse RETRO", "Tamaño del array => " + respuesta.getUsers().size());
 
             List<User> Users = respuesta.getUsers();
             ArrayList<UserE> lista = new ArrayList<>();
-            Integer i=1;
-            for (User User: Users) {
-                lista.add( new UserE(i, User.getCorreo().toString(),
-                        User.getPass().toString(), User.getUsuario().toString(), User.getNumeroContacto()));
-                i=i+1;
+            Integer i = 1;
+            for (User User : Users) {
+                lista.add(new UserE(i, User.getCorreo(), User.getPass(), User.getUsuario(), User.getNumeroContacto()));
+                i = i + 1;
             }
 
-            if(arregloMain!=null)
+            if (arregloMain != null)
                 arregloMain.clear();
             arregloMain = lista;
+
+            // Mostrar u ocultar el mensaje de vista vacía
+            if (arregloMain.isEmpty()) {
+                recyclerView.setVisibility(View.GONE);
+                emptyView.setVisibility(View.VISIBLE);
+            } else {
+                recyclerView.setVisibility(View.VISIBLE);
+                emptyView.setVisibility(View.GONE);
+            }
+
             listAdapter = new MyLocalAdapter(this, arregloMain);
             recyclerView.setAdapter(listAdapter);
             listAdapter.notifyDataSetChanged();
         }
     }
+
+
 
     @Override
     public void onFailure(Call<USEResponse> call, Throwable t) {
@@ -90,14 +105,14 @@ public class SecActivity extends AppCompatActivity implements Callback<USERespon
         }
 
         @Override
-        public LocalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public SecActivity.MyLocalAdapter.LocalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(context).inflate(R.layout.row_user, null);
-            LocalViewHolder customViewHolder = new LocalViewHolder(view);
+            SecActivity.MyLocalAdapter.LocalViewHolder customViewHolder = new SecActivity.MyLocalAdapter.LocalViewHolder(view);
             return customViewHolder;
         }
 
         @Override
-        public void onBindViewHolder(LocalViewHolder holder, int position) {
+        public void onBindViewHolder(SecActivity.MyLocalAdapter.LocalViewHolder holder, int position) {
 
             UserE fila = data.get(position);
             holder.labelCorreo.setText(fila.getCorreo());
@@ -121,15 +136,17 @@ public class SecActivity extends AppCompatActivity implements Callback<USERespon
 
             protected View rowView;
             protected TextView labelCorreo;
-            protected TextView labelPass, labelUsuario;
-            protected ImageView iconoTelefono;
+            protected TextView labelPass;
+            protected TextView labelUsuario;
             protected TextView labelNumeroContacto;
+            protected ImageView iconoTelefono;
+
 
             public LocalViewHolder(View itemView) {
                 super(itemView);
                 this.labelCorreo = (TextView) itemView.findViewById(R.id.Correo);
                 this.labelPass = (TextView) itemView.findViewById(R.id.Pass);
-                this.labelUsuario = (TextView) itemView.findViewById(R.id.User);
+                this.labelUsuario = (TextView) itemView.findViewById(R.id.user);
                 this.labelNumeroContacto = (TextView) itemView.findViewById(R.id.NumeroContacto);
                 this.iconoTelefono = (ImageView) itemView.findViewById(R.id.iconotelefono);
                 itemView.setOnClickListener(this);
@@ -154,7 +171,7 @@ public class SecActivity extends AppCompatActivity implements Callback<USERespon
                 UserE objE = data.get(currentRow);
 
                 /// Llamar por telefono
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", objE.getUsuario(), null));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", objE.getCorreo(), null));
                 startActivity(intent);
 
                 return false;
