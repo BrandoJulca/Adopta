@@ -1,4 +1,4 @@
-package Conexion.Anuncio.ComponentesAnuncio;
+package com.example.Adopta.Conexion.Tablas.Componentes.ComponentesUser;
 
 public class User {
     private String Correo;

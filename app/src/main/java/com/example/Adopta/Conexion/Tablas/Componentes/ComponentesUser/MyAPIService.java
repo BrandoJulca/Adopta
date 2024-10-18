@@ -1,4 +1,4 @@
-package com.example.Adopta.Conexion.User.ComponentesUser;
+package com.example.Adopta.Conexion.Tablas.Componentes.ComponentesUser;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

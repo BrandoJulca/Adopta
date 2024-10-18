@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:gravity="space_between"
+            android:gravity="fill"
             android:background="@drawable/border_linear_layout"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
@@ -52,12 +52,6 @@
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_male" />
-
-            <ImageView
-                android:id="@+id/qr_code"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_wsp" />
 
             <ImageView
                 android:id="@+id/nose_print"

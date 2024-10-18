@@ -1,4 +1,4 @@
-package com.example.Adopta.Conexion.User.ComponentesUser;
+package com.example.Adopta.Conexion.Tablas.Componentes.ComponentesUser;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
